@@ -70,6 +70,43 @@ To confirm:
 
 /rg info <rejion>
 
+Disable RegionPay for a Region (temporarily OFF)
+
+Use this if you want to keep the setting but stop charging players:
+
+/rg flag <region> regionpay-entry-fee deny
+
+
+Example:
+
+/rg flag market regionpay-entry-fee deny
+
+
+Players will no longer be charged, but you can re-enable later.
+
+Completely Remove RegionPay Flag (reset region)
+
+Use this if you want to remove the entry fee configuration entirely:
+
+/rg flag <region> regionpay-entry-fee -
+
+
+Example:
+
+/rg flag market regionpay-entry-fee -
+
+
+This region will no longer be part of RegionPay until configured again.
+
+Re-enable RegionPay (turn charging back ON)
+/rg flag <region> regionpay-entry-fee allow
+
+Summary Table
+Action	Command
+Disable charging	/rg flag <region> regionpay-entry-fee deny
+Delete entry-fee flag	/rg flag <region> regionpay-entry-fee -
+Enable charging	/rg flag <region> regionpay-entry-fee allow
+
 📘 Commands
 Command	Description
 /regionpay reload	Reloads configuration files
