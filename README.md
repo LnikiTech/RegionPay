@@ -1,7 +1,6 @@
 RegionPay
 
-RegionPay is a Minecraft plugin that charges players when they enter a specified WorldGuard region.
-Perfect for servers that want toll areas, paid zones, restricted access, or player-driven economies.
+RegionPay is a Minecraft plugin that charges players when they enter a specified WorldGuard region. Perfect for servers that want toll areas, paid zones, restricted access, or player-driven economies.
 
 🔧 Features
 
@@ -27,18 +26,17 @@ WorldGuard / WorldEdit
 
 📥 Installation
 
-Download regionpay-1.0.jar
+Download the latest release: RegionPay v1.0
 
-Place it into the plugins/ folder
+Place the regionpay-1.0.jar into the plugins/ folder
 
 Restart the server
 
-Configure config.yml
+Configure config.yml as needed
 
 ⚙️ Configuration
 
-Configuration files are stored in:
-/plugins/RegionPay/
+Configuration files are stored in: /plugins/RegionPay/
 
 Example settings:
 
@@ -49,11 +47,11 @@ Region entry messages
 Entry fee values per region
 
 🗺 WorldGuard Setup (Important!)
-▶ Enable entry charging for a region
+Enable entry charging for a region
 
-RegionPay uses a WorldGuard custom flag:
+RegionPay uses a custom WorldGuard flag:
 
-/rg flag <region> regionpay-entry-fee allow
+/rg flag regionpay-entry-fee allow
 
 
 Example:
@@ -62,8 +60,7 @@ Example:
 
 👑 Region Ownership (Who receives the money?)
 
-Region owners receive the entry fee (minus tax).
-Set a region owner:
+Region owners receive the entry fee (minus tax). Set a region owner with:
 
 /rg addowner <region> <player>
 
@@ -73,30 +70,17 @@ To confirm ownership:
 /rg info <region>
 
 🛑 Disable / Remove / Enable RegionPay
-Disable RegionPay for a region (temporarily OFF)
-/rg flag <region> regionpay-entry-fee deny
+Action	Command
+Disable charging (temporarily OFF)	/rg flag regionpay-entry-fee deny
+Delete entry flag (reset the region)	/rg flag regionpay-entry-fee -
+Re-enable charging	/rg flag regionpay-entry-fee allow
 
-
-Example:
+Example for the market region:
 
 /rg flag market regionpay-entry-fee deny
-
-Completely remove RegionPay flag (reset the region)
-/rg flag <region> regionpay-entry-fee -
-
-
-Example:
-
 /rg flag market regionpay-entry-fee -
+/rg flag market regionpay-entry-fee allow
 
-Re-enable RegionPay
-/rg flag <region> regionpay-entry-fee allow
-
-Summary Table
-Action	Command
-Disable charging	/rg flag <region> regionpay-entry-fee deny
-Delete entry flag	/rg flag <region> regionpay-entry-fee -
-Enable charging	/rg flag <region> regionpay-entry-fee allow
 📘 Plugin Commands
 Command	Description
 /regionpay reload	Reloads configuration files
@@ -107,13 +91,11 @@ Command	Description
 
 📄 License
 
-This project is licensed under the MIT License.
-You may use, modify, and distribute it as long as attribution is preserved.
+This project is licensed under the MIT License. You may use, modify, and distribute it as long as attribution is preserved.
 
 🤝 Contributing
 
-Suggestions and pull requests are welcome!
-Submit them via GitHub Issues or Pull Requests.
+Suggestions and pull requests are welcome! Submit them via GitHub Issues or Pull Requests.
 
 📝 Notes / Upcoming Features
 
