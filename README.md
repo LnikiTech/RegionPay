@@ -1,71 +1,102 @@
-# RegionPay
+RegionPay is a Minecraft plugin that charges players when they enter a specified WorldGuard region.
+Useful for servers that want to create toll areas, paid zones, restricted access areas, or economic-based gameplay regions.
 
-RegionPay is a Minecraft plugin that charges players when they enter a specified WorldGuard region.  
-Useful for servers that want to create toll areas, paid zones, restricted access areas, or economic-based regions.
+🔧 Features
 
----
+Automatically charges players when entering configured regions
 
-## 🔧 Features
-- Automatically charges a player when entering a specific region  
-- Supports individual fee settings per region  
-- Fully configurable via `config.yml` and `region.yml`  
-- Lightweight and optimized to minimize performance impact  
+Fully customizable per-region pricing
 
----
+Easy configuration using config.yml and region.yml
 
-## 📌 Requirements
-- Paper / Spigot **1.21.x**
-- Vault (Economy API)
-- Economy plugin supported by Vault
-- WorldGuard / WorldEdit
+Lightweight and optimized for production servers
 
----
+📌 Requirements
 
-## 📥 Installation
-1. Download `regionpay-1.0.jar`
-2. Place it into your `plugins` folder
-3. Restart the server
-4. Configure `config.yml` and `region.yml` as needed
+Paper / Spigot 1.21.x
 
----
+Vault (Economy API)
 
-## ⚙️ Configuration
-Located in: `/plugins/RegionPay/`
+Economy plugin compatible with Vault
 
-### Example settings  
-- Region-based fees  
-- Cooldown to prevent repeated charging  
-- Global settings (enable/disable messages, defaults, etc.)
+WorldGuard / WorldEdit
 
----
+📥 Installation
 
-## 📘 Usage / Commands
-| Command               | Description                         |
-|----------------------|-------------------------------------|
-| `/regionpay reload`  | Reloads configuration files         |
+Download regionpay-1.0.jar
 
-Permissions (if needed) may be added in the future.
+Place it into your server plugins folder
 
----
+Restart the server
 
-## 📄 License
-This project is distributed under the **MIT License**.  
-You are free to use, modify, and distribute it, as long as credit is retained.
+Edit configuration files as needed
 
----
+⚙️ Configuration
 
-## 🤝 Contributing
-Issues, suggestions, and pull requests are welcome!  
+Located in:
+
+/plugins/RegionPay/
+
+Example options:
+
+Entry fees per region
+
+Cooldowns to prevent repeated charging
+
+Global settings (messages, defaults, etc.)
+
+📘 Usage / Commands
+Command	Description
+/regionpay reload	Reloads configuration files
+🗺 WorldGuard Setup (Important!)
+
+To enable charging in a region, apply this custom WorldGuard flag:
+
+▶ Enable entry fee
+/rg flag <region> regionpay-entry-fee allow
+
+
+Example:
+
+/rg flag market regionpay-entry-fee allow
+
+▶ Allow passthrough (optional)
+
+Useful when players should walk through shops/hubs without building.
+
+/rg flag -w <world> <region> passthrough allow
+
+
+Example:
+
+/rg flag -w world market passthrough allow
+
+▶ Disable mob spawning (optional)
+/region flag <region> mob-spawning deny
+
+🧪 Example Setup
+/rg define market
+/rg addowner market Lniki
+/rg flag market regionpay-entry-fee allow
+/rg flag -w world market passthrough allow
+/region flag market mob-spawning deny
+
+📄 License
+
+This project is licensed under the MIT License.
+You may use, modify, and distribute the project as long as attribution is preserved.
+
+🤝 Contributing
+
+Suggestions and pull requests are welcome!
 Please submit them through the GitHub repository.
 
----
+📝 Notes
 
-## 📝 Notes
-This plugin is still in development.  
-Future updates may include:
-- Region-based discounts
-- Support for more event triggers
-- API integration extensions
+Planned future features:
 
----
+Region-based discounts
 
+Additional fee event triggers
+
+API expansions
