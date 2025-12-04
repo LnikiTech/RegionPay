@@ -1,0 +1,16 @@
+name: RegionPay
+main: com.example.region.RegionPay
+version: 1.0
+api-version: 1.21
+author: Lniki
+
+commands:
+  regionpay:
+    description: Handle region payment commands
+    permission: regionpay.reload
+    permission-message: 設定がリロードされました
+
+permissions:
+  regionpay.reload:
+    description: Allows players to reload the tax rate
+    default: op
