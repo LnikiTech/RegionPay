@@ -1,0 +1,29 @@
+name: RegionPay
+main: com.example.region.RegionPlugin
+version: 1.0
+api-version: 1.21
+author: Lniki
+
+commands:
+  regionpay:
+    description: Handle region payment commands
+    permission: regionpay.reload
+    permission-message: あなたにはこのコマンドを実行する権限がありません。
+    usage: /regionpay reload
+    aliases: [rp]
+  setfee:
+    description: Set the entry fee for a specific region
+    permission: regionpay.setfee
+    permission-message: あなたにはこのコマンドを実行する権限がありません。
+    usage: /setfee <region> <fee>
+    aliases: [rpfee]
+
+permissions:
+  regionpay.reload:
+    description: Allows players to reload the tax rate
+    default: op
+  regionpay.setfee:
+    description: Allows players to set the entry fee for regions
+    default: op
+
+softdepend: [WorldGuard, Vault, WorldEdit]
