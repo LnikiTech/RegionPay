@@ -23,7 +23,7 @@ public class RegionFeeManager {
         }
     }
 
-    // リージョンに料金を設定
+    
        public void setRegionFee(String regionId, double fee, Player player) {
         RegionContainer regionContainer = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regionManager = regionContainer.get(BukkitAdapter.adapt(player.getWorld()));
@@ -42,7 +42,7 @@ public class RegionFeeManager {
         }
     }
 
-    // リージョンの料金を取得
+    
     public double getRegionFee(String regionId, Player player) {
         RegionContainer regionContainer = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regionManager = regionContainer.get(BukkitAdapter.adapt(player.getWorld()));
@@ -67,7 +67,7 @@ public class RegionFeeManager {
         return 0.0;
     }
 
-    // プレイヤーがリージョンに入っているかどうかを確認
+    
     public boolean isPlayerInRegion(Player player, String regionId) {
         RegionContainer regionContainer = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regionManager = regionContainer.get(BukkitAdapter.adapt(player.getWorld()));
@@ -85,7 +85,7 @@ public class RegionFeeManager {
         return false;
     }
 
-    // リージョンの料金徴収が必要かどうかをチェック
+    
     public boolean isEntryFeeRequired(Player player, String regionId) {
         double fee = getRegionFee(regionId, player);
         return fee > 0.0;
