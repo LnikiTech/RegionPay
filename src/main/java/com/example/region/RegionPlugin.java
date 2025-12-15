@@ -9,7 +9,7 @@ import net.milkbowl.vault.economy.Economy;
 
 public class RegionPlugin extends JavaPlugin {
 
-    private double taxRate;  // インスタンスフィールド
+    private double taxRate;  
     private static final String TAX_ACCOUNT = "tax";
 
     private Economy economy;
@@ -17,7 +17,7 @@ public class RegionPlugin extends JavaPlugin {
     private PlayerMoveListener playerMoveListener;
     private ReloadCommand reloadCommand;
     private PlayerRegionSession playerRegionSession;
-    private RegionFeeHandler feeHandler;  // RegionFeeHandler のインスタンスをフィールドに定義
+    private RegionFeeHandler feeHandler;  
     private RegionFeeManager regionFeeManager;
 
     @Override
@@ -45,13 +45,13 @@ public class RegionPlugin extends JavaPlugin {
         WorldGuardPlugin worldGuardPlugin = (WorldGuardPlugin) getServer().getPluginManager().getPlugin("WorldGuard");
         if (worldGuardPlugin != null) {
             regionFeeManager = new RegionFeeManager(worldGuardPlugin);
-            feeHandler = new RegionFeeHandler(economy, taxRate, regionFeeManager, this);  // RegionFeeHandler を初期化
+            feeHandler = new RegionFeeHandler(economy, taxRate, regionFeeManager, this);  
         } else {
             getLogger().warning("[RegionPay] WorldGuardプラグインが見つかりません。料金設定をロードできません。");
             return;
         }
 
-        // 料金を読み込む
+        
         feeHandler.loadRegionFees();
         playerRegionSession = new PlayerRegionSession(feeHandler);
         playerMoveListener = new PlayerMoveListener(economy, playerRegionSession, feeHandler);
@@ -65,7 +65,7 @@ public class RegionPlugin extends JavaPlugin {
     }
 
     private double loadTaxRate() {
-        return config.getDouble("tax-rate", 0.1); // デフォルトの税率は 0.1
+        return config.getDouble("tax-rate", 0.1); 
     }
 
     private Economy getEconomy() {
@@ -75,7 +75,7 @@ public class RegionPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // feeHandlerがnullでないことを確認してから保存処理を行う
+        
         if (feeHandler != null) {
             feeHandler.saveRegionFees();
         } else {
@@ -93,17 +93,17 @@ public class RegionPlugin extends JavaPlugin {
     }
 
     public void reloadPlugin() {
-        // config.ymlのリロード
+        
         reloadConfig();
 
-        // 設定ファイルから税率を再読み込み
-        double newTaxRate = getConfig().getDouble("tax-rate", 0.1);  // デフォルト値を0.1に指定
+        
+        double newTaxRate = getConfig().getDouble("tax-rate", 0.1);  
 
-        // 新しい税率を feeHandler に反映
+        
         if (feeHandler != null) {
-            feeHandler.setTaxRate(newTaxRate);  // 新しい税率をfeeHandlerに反映
+            feeHandler.setTaxRate(newTaxRate);  
 
-            // 税率をログに表示
+            
             getLogger().info("設定ファイルから読み込んだ税率: " + newTaxRate);
             getLogger().info("feeHandlerに反映された税率: " + feeHandler.getTaxRate());
         } else {
